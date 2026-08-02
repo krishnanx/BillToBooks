@@ -1,0 +1,47 @@
+:root {
+  /* Palette: old accounting-ledger paper, not the generic cream/terracotta AI default */
+  --paper: #EEF2EA;        /* pale sage ledger paper */
+  --surface: #FFFFFF;      /* a clean sheet laid on the paper */
+  --ink: #1F2A22;          /* dark forest-ink, near-black */
+  --ink-soft: #52604F;     /* secondary ink, muted */
+  --line: #C9D3C3;         /* faint rule lines */
+  --stamp: #B23A2E;        /* rubber-stamp red - primary accent / CTA */
+  --stamp-dark: #8F2C22;
+  --brass: #A8823C;        /* ledger-clip brass - secondary accent */
+  --ok: #2F6B3C;
+  --ok-bg: #E4EFE0;
+  --err: #B23A2E;
+  --err-bg: #F7E6E3;
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Inter", -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px);
+  background-size: 100% 32px;
+  background-attachment: local;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+::selection { background: var(--brass); color: var(--surface); }
+
+button:focus-visible, input:focus-visible, label:focus-within {
+  outline: 2px solid var(--stamp);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}

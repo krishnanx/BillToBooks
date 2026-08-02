@@ -1,0 +1,221 @@
+.page {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 48px 24px 96px;
+}
+
+/* --- Masthead: signature element - looks like a ledger book's title plate --- */
+.masthead {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 40px;
+  padding-bottom: 24px;
+  border-bottom: 2px solid var(--ink);
+}
+.masthead-mark {
+  font-size: 34px;
+  color: var(--stamp);
+  transform: rotate(-8deg);
+  line-height: 1;
+}
+.masthead h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 32px;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+.masthead p {
+  margin: 4px 0 0;
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+
+.ledger-pad {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* --- Sheet: each step looks like a page laid on the ledger pad --- */
+.sheet {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 28px 28px 24px;
+  box-shadow: 0 1px 0 var(--line), 0 8px 20px -14px rgba(31, 42, 34, 0.4);
+}
+.sheet-tab {
+  position: absolute;
+  top: -12px;
+  left: 24px;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 3px 9px;
+  border-radius: 2px;
+  letter-spacing: 0.06em;
+}
+.sheet h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 22px;
+  margin: 6px 0 2px;
+}
+.sheet .hint {
+  color: var(--ink-soft);
+  font-size: 13px;
+  margin: 2px 0 16px;
+}
+.sub-label {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  margin: 20px 0 10px;
+  font-weight: 600;
+}
+
+/* --- Upload dropzone --- */
+.dropzone {
+  border: 1.5px dashed var(--line);
+  border-radius: 4px;
+  min-height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--ink-soft);
+  font-size: 14px;
+  transition: border-color 0.15s ease;
+  overflow: hidden;
+}
+.dropzone:hover { border-color: var(--brass); }
+.preview { max-height: 220px; width: auto; object-fit: contain; }
+
+/* --- Model chips --- */
+.chip-row { display: flex; gap: 10px; flex-wrap: wrap; }
+.chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  font-size: 13px;
+  cursor: pointer;
+  color: var(--ink-soft);
+  user-select: none;
+}
+.chip input { accent-color: var(--stamp); }
+.chip-active {
+  border-color: var(--stamp);
+  color: var(--ink);
+  background: #FBEFEC;
+}
+
+/* --- Buttons --- */
+.action-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.btn-stamp {
+  background: var(--stamp);
+  color: #fff;
+  border: none;
+  padding: 11px 22px;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.01em;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+.btn-stamp:hover:not(:disabled) { background: var(--stamp-dark); }
+.btn-stamp:active:not(:disabled) { transform: scale(0.98); }
+.btn-stamp:disabled { background: #C9C2BE; cursor: not-allowed; }
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  padding: 8px 16px;
+  border-radius: 3px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.btn-outline:hover:not(:disabled) { background: var(--ink); color: var(--paper); }
+.btn-outline:disabled { color: #C9C2BE; border-color: #C9C2BE; cursor: not-allowed; }
+
+.status-text { font-size: 13px; color: var(--ink-soft); }
+
+/* --- Ledger comparison table --- */
+.ledger-scroll { overflow-x: auto; }
+table.ledger {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+table.ledger th, table.ledger td {
+  text-align: left;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+table.ledger th {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  border-bottom: 2px solid var(--ink);
+}
+table.ledger .ledger-label { color: var(--ink-soft); font-weight: 500; }
+table.ledger .mono { font-family: var(--font-mono); }
+
+.badge {
+  display: inline-block;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin-left: 8px;
+  font-weight: 600;
+}
+.badge-ok { background: var(--ok-bg); color: var(--ok); }
+.badge-err { background: var(--err-bg); color: var(--err); }
+
+/* --- Push form --- */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 20px;
+}
+.form-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+.form-grid input {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  padding: 9px 10px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  color: var(--ink);
+  background: var(--paper);
+}
+.form-grid input:focus { border-color: var(--stamp); }
+
+@media (max-width: 560px) {
+  .form-grid { grid-template-columns: 1fr; }
+  .masthead h1 { font-size: 26px; }
+}
